@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maica Jenish Doctolero — Front-end Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Inline blocking script to prevent theme flashing (FOUC) */
+    (function() {
+      let saved = null;
+      try {
+        saved = localStorage.getItem('theme');
+      } catch (e) {
+        // Gracefully fallback if localStorage is disabled or restricted
+      }
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <span class="wordmark">cai<span class="dot">.</span>dctlr</span>
+    <nav aria-label="Main Navigation">
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="icon" id="themeIcon">☾</span><span id="themeLabel">dark</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div class="hero-avatar">
+        <!-- Replace the src with your actual image path when ready -->
+        <div class="avatar-placeholder">
+          <img src="images/avatar.jpg" alt="Maica Jenish Doctolero" onerror="this.style.display='none'">
+        </div>
+        <span class="status-indicator"></span>
+      </div>
+      
+      <div class="hero-content">
+        <span class="eyebrow">STUDENT &amp; ASPIRING DEVELOPER</span>
+        <h1>Hi, I'm Maica Jenish Doctolero.</h1>
+        <p class="role">I'm a <strong>front-end developer</strong> currently studying and building projects. I enjoy transforming design ideas into interactive, accessible, and responsive user experiences.</p>
+      </div>
+    </div>
+
+    <div class="terminal-wrapper">
+      <div class="terminal">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <div class="line"><span class="out" id="typedOut"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="wrap about">
+    <div class="section-head">
+      <span class="tag">01</span>
+      <h2>About Me</h2>
+    </div>
+    <p>I am currently a student navigating the world of web development. My journey began with a curiosity about how layouts, typography, and logic come together on a screen — and now I spend my free time experimenting with code and exploring modern interface patterns.</p>
+    <p>I focus on building layouts that are clean, intuitive, and easy to maintain. When I am not studying or writing code, I enjoy exploring fresh design inspiration and learning new techniques to polish my front-end craft.</p>
+  </section>
+  <br>
+  <section id="education" class="wrap">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>Education</h2>
+    </div>
+    <div class="education-timeline">
+      
+      <!-- Education Card 1 -->
+      <div class="education-card">
+        <div class="edu-header">
+          <span class="edu-date">Present</span>
+          <h3 class="edu-title">Bachelor of Science in Computer Science</h3>
+        </div>
+        <p class="edu-institution">DMMMSU-SLUC</p>
+        <p class="edu-desc">Focusing on application development, databases, and structural system design.</p>
+      </div>
+  
+      <!-- Education Card 2 -->
+      <div class="education-card">
+        <div class="edu-header">
+          <span class="edu-date">Ongoing Self-Directed Study</span>
+          <h3 class="edu-title">Front-End Development Curriculums</h3>
+        </div>
+        <p class="edu-institution">Online Platforms &amp; Documentation</p>
+        <p class="edu-desc">Self-studying semantic HTML/CSS structures, Javascript ES6 foundations, modern layout systems (Flexbox &amp; CSS Grid), and building components in React.</p>
+      </div>
+    <br>
+    </div>
+  </section>
+  <br>
+  <section id="skills" class="wrap">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-item"><span class="k">LANGUAGES</span><span class="v">HTML5, CSS3, JavaScript (ES6+)</span></div>
+      <div class="stack-item"><span class="k">FRONT-END</span><span class="v">React, Flexbox, CSS Grid</span></div>
+      <div class="stack-item"><span class="k">CSS FRAMEWORKS</span><span class="v">Tailwind CSS, Bootstrap</span></div>
+      <div class="stack-item"><span class="k">DEVELOPER TOOLING</span><span class="v">Git, GitHub, VS Code</span></div>
+      <div class="stack-item"><span class="k">DESIGN &amp; UI</span><span class="v">Figma, Responsive Design</span></div>
+      <div class="stack-item"><span class="k">CURRENTLY LEARNING</span><span class="v">TypeScript, Next.js</span></div>
+    </div>
+    <br>
+  </section>
+  <br>
+  <section id="contact" class="wrap">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-link" href="mailto:maicadoctolero@gmail.com">
+        <span class="icon">@</span> maicadoctolero@gmail.com
+      </a>
+      <a class="contact-link" href="https://github.com/maicadoctolero-dev" target="_blank" rel="noopener">
+        <span class="icon">&lt;/&gt;</span> github.com/maicadoctolero-dev
+      </a>
+    </div>
+    <br>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="footer-note">All Rights Reserved</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
