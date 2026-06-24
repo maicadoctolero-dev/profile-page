@@ -1,72 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maica Jenish Doctolero — Front-end Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script>
-    /* Inline blocking script to prevent theme flashing (FOUC) */
-    (function() {
-      let saved = null;
-      try {
-        saved = localStorage.getItem('theme');
-      } catch (e) {
-        // Gracefully fallback if localStorage is disabled or restricted
-      }
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maica Jenish Doctolero — Front-end Developer</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
   <div class="wrap nav-row">
-    <span class="wordmark">cai<span class="dot">.</span>dctlr</span>
-    <nav aria-label="Main Navigation">
-      <a href="#about">About Me</a>
+    <a href="#" class="wordmark">cai.dctlr<span class="dot">.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certs</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span class="icon" id="themeIcon">☾</span><span id="themeLabel">dark</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon" id="themeIcon">☾</span>
+        <span id="themeLabel">dark</span>
       </button>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="hero wrap">
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="hero-grid">
       <div class="hero-avatar">
-        <!-- Replace the src with your actual image path when ready -->
         <div class="avatar-placeholder">
-          <img src="images/avatar.jpg" alt="Maica Jenish Doctolero" onerror="this.style.display='none'">
+          <span class="avatar-initials">MJ</span>
         </div>
-        <span class="status-indicator"></span>
+        <span class="status-indicator" title="Available"></span>
       </div>
-      
       <div class="hero-content">
         <span class="eyebrow">STUDENT &amp; ASPIRING DEVELOPER</span>
         <h1>Hi, I'm Maica Jenish Doctolero.</h1>
-        <p class="role">I'm a <strong>front-end developer</strong> currently studying and building projects. I enjoy transforming design ideas into interactive, accessible, and responsive user experiences.</p>
-      </div>
-    </div>
-
-    <div class="terminal-wrapper">
-      <div class="terminal">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <div class="line"><span class="out" id="typedOut"></span></div>
+        <p class="role">I'm a front-end developer currently studying and building projects. I enjoy transforming design ideas into interactive, accessible, and responsive user experiences.</p>
+        <div class="terminal-wrapper">
+          <div class="terminal">
+            <div class="bar"><span></span><span></span><span></span></div>
+            <div class="line"><span class="out" id="typedOut"></span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="wrap about">
+  <!-- ABOUT -->
+  <section id="about">
     <div class="section-head">
       <span class="tag">01</span>
       <h2>About Me</h2>
@@ -74,40 +63,160 @@
     <p>I am currently a student navigating the world of web development. My journey began with a curiosity about how layouts, typography, and logic come together on a screen — and now I spend my free time experimenting with code and exploring modern interface patterns.</p>
     <p>I focus on building layouts that are clean, intuitive, and easy to maintain. When I am not studying or writing code, I enjoy exploring fresh design inspiration and learning new techniques to polish my front-end craft.</p>
   </section>
-  <br>
-  <section id="education" class="wrap">
+
+  <!-- PROJECTS -->
+  <section id="projects">
     <div class="section-head">
       <span class="tag">02</span>
+      <h2>Projects</h2>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-thumb">
+          <img src="https://image.qwenlm.ai/public_source/42ee5604-a2ae-49bc-976b-d027e1cc9b00/10d0f82a1-f649-4c12-9e2c-d831d8c7cc26.png" alt="Portfolio Website" />
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">A modern, responsive personal portfolio with dark/light theme, terminal aesthetic, and smooth animations. Built to showcase my journey as a developer.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <a href="#" class="project-link">View Project <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-thumb">
+          <img src="https://image.qwenlm.ai/public_source/42ee5604-a2ae-49bc-976b-d027e1cc9b00/1a7e94c1d-1154-4784-b3d5-d94b70bf8325.png" alt="Task Manager" />
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">TaskFlow Manager</h3>
+          <p class="project-desc">A kanban-style task management app with drag-and-drop, priority tagging, and local storage persistence. Clean UI with glassmorphism accents.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">LocalStorage</span>
+          </div>
+          <a href="#" class="project-link">View Project <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-thumb">
+          <img src="https://image.qwenlm.ai/public_source/42ee5604-a2ae-49bc-976b-d027e1cc9b00/13dd967a1-40a9-4ab2-a207-2be3c1d7ce65.png" alt="Weather Dashboard" />
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Weather Dashboard</h3>
+          <p class="project-desc">Real-time weather dashboard with location search, 7-day forecast, and animated weather icons. Integrates with OpenWeather API.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">CSS Grid</span>
+          </div>
+          <a href="#" class="project-link">View Project <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-thumb">
+          <img src="https://image.qwenlm.ai/public_source/42ee5604-a2ae-49bc-976b-d027e1cc9b00/183d3f6bb-b312-4370-aa80-db2642568f8e.png" alt="E-commerce Landing" />
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">StyleShop Landing</h3>
+          <p class="project-desc">A responsive e-commerce landing page with product grid, hero banner, and smooth scroll interactions. Mobile-first design approach.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">Figma</span>
+          </div>
+          <a href="#" class="project-link">View Project <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-body">
+          <div class="cert-title">Responsive Web Design</div>
+          <div class="cert-issuer">freeCodeCamp · Verified Certificate</div>
+        </div>
+        <div class="cert-date">2025</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">⚡</div>
+        <div class="cert-body">
+          <div class="cert-title">JavaScript Algorithms &amp; Data Structures</div>
+          <div class="cert-issuer">freeCodeCamp · Verified Certificate</div>
+        </div>
+        <div class="cert-date">2025</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">⚛️</div>
+        <div class="cert-body">
+          <div class="cert-title">React (Basic)</div>
+          <div class="cert-issuer">Meta · Coursera Specialization</div>
+        </div>
+        <div class="cert-date">2026</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🎨</div>
+        <div class="cert-body">
+          <div class="cert-title">UI/UX Design Fundamentals</div>
+          <div class="cert-issuer">Google · Coursera</div>
+        </div>
+        <div class="cert-date">2026</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon"></div>
+        <div class="cert-body">
+          <div class="cert-title">HTML &amp; CSS in Depth</div>
+          <div class="cert-issuer">Meta · Coursera</div>
+        </div>
+        <div class="cert-date">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-head">
+      <span class="tag">04</span>
       <h2>Education</h2>
     </div>
     <div class="education-timeline">
-      
-      <!-- Education Card 1 -->
       <div class="education-card">
         <div class="edu-header">
-          <span class="edu-date">Present</span>
-          <h3 class="edu-title">Bachelor of Science in Computer Science</h3>
+          <div class="edu-title">Bachelor of Science in Computer Science</div>
+          <div class="edu-date">Present</div>
         </div>
-        <p class="edu-institution">DMMMSU-SLUC</p>
+        <div class="edu-institution">DMMMSU-SLUC</div>
         <p class="edu-desc">Focusing on application development, databases, and structural system design.</p>
       </div>
-  
-      <!-- Education Card 2 -->
       <div class="education-card">
         <div class="edu-header">
-          <span class="edu-date">Ongoing Self-Directed Study</span>
-          <h3 class="edu-title">Front-End Development Curriculums</h3>
+          <div class="edu-title">Front-End Development Curriculums</div>
+          <div class="edu-date">Ongoing</div>
         </div>
-        <p class="edu-institution">Online Platforms &amp; Documentation</p>
-        <p class="edu-desc">Self-studying semantic HTML/CSS structures, Javascript ES6 foundations, modern layout systems (Flexbox &amp; CSS Grid), and building components in React.</p>
+        <div class="edu-institution">Online Platforms &amp; Documentation</div>
+        <p class="edu-desc">Self-studying semantic HTML/CSS structures, JavaScript ES6 foundations, modern layout systems (Flexbox &amp; CSS Grid), and building components in React.</p>
       </div>
-    <br>
     </div>
   </section>
-  <br>
-  <section id="skills" class="wrap">
+
+  <!-- SKILLS -->
+  <section id="skills">
     <div class="section-head">
-      <span class="tag">03</span>
+      <span class="tag">05</span>
       <h2>Skills</h2>
     </div>
     <div class="stack-grid">
@@ -118,28 +227,49 @@
       <div class="stack-item"><span class="k">DESIGN &amp; UI</span><span class="v">Figma, Responsive Design</span></div>
       <div class="stack-item"><span class="k">CURRENTLY LEARNING</span><span class="v">TypeScript, Next.js</span></div>
     </div>
-    <br>
   </section>
-  <br>
-  <section id="contact" class="wrap">
+
+  <!-- CONTACT -->
+  <section id="contact">
     <div class="section-head">
-      <span class="tag">04</span>
-      <h2>Get in touch</h2>
+      <span class="tag">06</span>
+      <h2>Get in Touch</h2>
     </div>
+    <p class="contact-intro">Have a project in mind, want to collaborate, or just say hi? Drop a message below. It travels through the cloud, gets stored in the database, and lands directly in my inbox.</p>
+
     <div class="contact-grid">
-      <a class="contact-link" href="mailto:maicadoctolero@gmail.com">
+      <a href="mailto:maicadoctolero@gmail.com" class="contact-link">
         <span class="icon">@</span> maicadoctolero@gmail.com
       </a>
-      <a class="contact-link" href="https://github.com/maicadoctolero-dev" target="_blank" rel="noopener">
+      <a href="https://github.com/maicadoctolero-dev" target="_blank" rel="noopener" class="contact-link">
         <span class="icon">&lt;/&gt;</span> github.com/maicadoctolero-dev
       </a>
     </div>
-    <br>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="senderName">YOUR NAME</label>
+        <input type="text" id="senderName" class="form-input" placeholder="Jane Doe" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="senderEmail">EMAIL ADDRESS</label>
+        <input type="email" id="senderEmail" class="form-input" placeholder="jane@example.com" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="senderMessage">MESSAGE</label>
+        <textarea id="senderMessage" class="form-textarea" placeholder="Tell me about your project or just say hello..." required></textarea>
+        <div class="form-hint">// Your message will be encrypted in transit</div>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send Message →</button>
+    </form>
+
+    <div class="status-message" id="statusMessage"></div>
   </section>
+
 </main>
 
-<footer class="wrap">
-  <span class="footer-note">All Rights Reserved</span>
+<footer>
+  <p class="footer-note">© 2026 Maica Jenish Doctolero · All Rights Reserved</p>
 </footer>
 
 <script src="script.js"></script>
