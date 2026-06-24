@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggleBtn && themeIcon && themeLabel) {
     function syncToggleUI() {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      themeIcon.textContent = isDark ? '' : '☾';
+      themeIcon.textContent = isDark ? '☀' : '☾';
       themeLabel.textContent = isDark ? 'light' : 'dark';
     }
     syncToggleUI();
