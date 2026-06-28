@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submitBtn');
   const statusMessage = document.getElementById('statusMessage');
 
+  // Initialize Supabase
+  const SUPABASE_URL = 'https://qtowyrufqysqqzujloxm.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_aDdPAQaU3gx6bKtOJ-l2qw_wo6uvzSG';
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
   function setStatus(type, text) {
     statusMessage.className = 'status-message show ' + type;
     statusMessage.innerHTML = text;
@@ -107,10 +112,25 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.textContent = 'Sending...';
 
     try {
-      await new Promise(r => setTimeout(r, 1200));
+      // Insert message into Supabase
+      const { data, error } = await supabase
+        .from('messages')
+        .insert([
+          {
+            name: name,
+            email: email,
+            message: message
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
       setStatus('success', `<span>✓</span> Message sent successfully! Thanks, ${escapeHtml(name)}.`);
       form.reset();
     } catch (err) {
+      console.error('Error sending message:', err);
       setStatus('error', '<span>✗</span> Something went wrong. Please try again.');
     } finally {
       submitBtn.disabled = false;
