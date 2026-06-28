@@ -117,4 +117,95 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = 'Send Message →';
     }
   });
+
+  // ==========================================================================
+  // Hamburger Menu & Navigation
+  // ==========================================================================
+  const hamburger = document.getElementById('hamburger');
+  const mainNav = document.getElementById('mainNav');
+  
+  if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
+
+  // ==========================================================================
+  // Splash Screen Animation
+  // ==========================================================================
+  const splashLoader = document.getElementById('splashLoader');
+  const splashBar = document.getElementById('splashBar');
+  const splashText = document.getElementById('splashText');
+
+  if (splashLoader) {
+    // Simulate loading progress
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+      progress += Math.random() * 30;
+      if (progress > 100) progress = 100;
+      if (splashBar) splashBar.style.width = progress + '%';
+      
+      if (progress === 100) {
+        clearInterval(loadingInterval);
+        // Hide splash screen after a short delay
+        setTimeout(() => {
+          splashLoader.classList.remove('active');
+        }, 300);
+      }
+    }, 200);
+  }
+
+  // ==========================================================================
+  // Projects Grid (Placeholder - Supabase integration)
+  // ==========================================================================
+  const projectsGrid = document.getElementById('projectsGrid');
+  if (projectsGrid) {
+    // Sample project data - replace with Supabase fetch when ready
+    const sampleProjects = [
+      {
+        id: 1,
+        title: "Museum Journal",
+        description: "Interactive journal application for museum exploration and documentation",
+        link: "https://museum-journal-one.vercel.app/",
+        tags: ["React", "Vercel"]
+      }
+    ];
+
+    // Populate projects grid
+    projectsGrid.innerHTML = sampleProjects.map(project => `
+      <a href="${project.link}" class="project-card" target="_blank" rel="noopener">
+        <div class="project-header">
+          <h3>${project.title}</h3>
+        </div>
+        <p>${project.description}</p>
+        <div class="project-tags">
+          ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+        </div>
+        <span class="project-cta">Visit Project →</span>
+      </a>
+    `).join('');
+  }
+
+  // ==========================================================================
+  // Smooth Scrolling for Anchor Links
+  // ==========================================================================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 });

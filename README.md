@@ -1,1 +1,2 @@
 # Profile-Page
+This profile page includes my background, skills, education, certifications, and other details related to my course, serving as a comprehensive showcase of my academic journey and professional growth. It also features the AI tools I use and a section to download my resume, and an option to message me directly for collaboration or inquiries.
