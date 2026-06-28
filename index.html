@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,65 +8,101 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
+<!-- ========== SPLASH LOADER ========== -->
+<div id="splashLoader" class="splash-overlay active">
+  <div class="splash-box">
+    <div class="splash-logo">cai.dctlr<span class="dot">.</span></div>
+    <div class="splash-bar-wrap"><div class="splash-bar" id="splashBar"></div></div>
+    <div class="splash-text" id="splashText">Booting portfolio matrix...</div>
+  </div>
+</div>
+
+<!-- ========== HEADER ========== -->
 <header>
   <div class="wrap nav-row">
     <a href="#" class="wordmark">cai.dctlr<span class="dot">.</span></a>
-    <nav>
+    <nav id="mainNav">
       <a href="#about">About</a>
+      <a href="#projects">Projects</a>
       <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
       <a href="#skills">Skills</a>
       <a href="#ai-tools">AI Tools</a>
       <a href="#contact">Contact</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="icon" id="themeIcon"></span>
-        <span id="themeLabel">dark</span>
+        <span class="icon" id="themeIcon">☀</span>
+        <span id="themeLabel">light</span>
       </button>
     </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- HERO -->
+  <!-- ========== HERO ========== -->
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-avatar">
-        <div class="avatar-placeholder">
-          <span class="avatar-initials">MJ</span>
+        <div class="avatar-ring">
+          <div class="avatar-placeholder">
+            <img src="./assets/avatar.jpg" alt="Maica Jenish Doctolero" onerror="this.style.display='none'" />
+            <span class="avatar-initials">MJ</span>
+          </div>
         </div>
-        <span class="status-indicator" title="Available"></span>
+        <span class="status-indicator" title="Available for projects"></span>
       </div>
       <div class="hero-content">
         <span class="eyebrow">STUDENT &amp; ASPIRING DEVELOPER</span>
-        <h1>Hi, I'm Maica Jenish Doctolero.</h1>
-        <p class="role">I'm a front-end developer currently studying and building projects. I enjoy transforming design ideas into interactive, accessible, and responsive user experiences.</p>
+        <h1>Hi, I'm <span class="name-gradient">Maica Jenish</span><br>Doctolero.</h1>
+        <p class="role">Front-end developer in the making — turning design ideas into interactive, accessible, and responsive web experiences.</p>
         <div class="terminal-wrapper">
           <div class="terminal">
             <div class="bar"><span></span><span></span><span></span></div>
-            <div class="line"><span class="out" id="typedOut"></span></div>
+            <div class="line"><span class="prompt">$&nbsp;</span><span class="out" id="typedOut"></span></div>
           </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-secondary">Get in Touch</a>
+          <a href="./assets/resume.pdf" download="Maica_Jenish_Doctolero_Resume.pdf" class="btn-secondary btn-resume">⬇ Download Resume</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ========== ABOUT ========== -->
   <section id="about">
     <div class="section-head">
       <span class="tag">01</span>
       <h2>About Me</h2>
     </div>
     <p>I am currently a student navigating the world of web development. My journey began with a curiosity about how layouts, typography, and logic come together on a screen — and now I spend my free time experimenting with code and exploring modern interface patterns.</p>
-    <p>I focus on building layouts that are clean, intuitive, and easy to maintain. When I am not studying or writing code, I enjoy exploring fresh design inspiration and learning new techniques to polish my front-end craft.</p>
+    <p>I focus on building layouts that are clean, intuitive, and easy to maintain. When I'm not studying or writing code, I enjoy exploring fresh design inspiration and learning new techniques to polish my front-end craft.</p>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects">
     <div class="section-head">
       <span class="tag">02</span>
+      <h2>Featured Projects</h2>
+    </div>
+    <p>Live projects fetched from my Supabase cloud database — click any card to visit the site:</p>
+    <div class="projects-grid" id="projectsGrid">
+      <div class="loading-placeholder"><span class="spinner-sm"></span> Loading projects...</div>
+    </div>
+  </section>
+
+  <!-- ========== EDUCATION ========== -->
+  <section id="education">
+    <div class="section-head">
+      <span class="tag">03</span>
       <h2>Education</h2>
     </div>
     <div class="education-timeline">
@@ -84,15 +120,48 @@
           <div class="edu-date">Ongoing</div>
         </div>
         <div class="edu-institution">Online Platforms &amp; Documentation</div>
-        <p class="edu-desc">Self-studying semantic HTML/CSS structures, JavaScript ES6 foundations, modern layout systems (Flexbox &amp; CSS Grid), and building components in React.</p>
+        <p class="edu-desc">Self-studying semantic HTML/CSS, JavaScript ES6, Flexbox &amp; CSS Grid, and React component architecture.</p>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ========== CERTIFICATIONS ========== -->
+  <section id="certifications">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>Certifications</h2>
+    </div>
+    <div class="certifications-list">
+      <div class="cert-card">
+        <div class="cert-header">
+          <div class="cert-title">Introduction to Data Science</div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-issuer">Issued by Networking Academy</div>
+        <p class="cert-desc">Through the Cisco Networking Academy program</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-header">
+          <div class="cert-title">Data Science Essentials with Python</div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-issuer">Issued by DICT-ITU DTC</div>
+        <p class="cert-desc">Initiative through the Cisco Networking Academy program</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-header">
+          <div class="cert-title">Foundations of Data Science &amp; AI</div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-issuer">Issued by Great Learning Academy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
   <section id="skills">
     <div class="section-head">
-      <span class="tag">03</span>
+      <span class="tag">05</span>
       <h2>Skills</h2>
     </div>
     <div class="stack-grid">
@@ -101,76 +170,112 @@
       <div class="stack-item"><span class="k">CSS FRAMEWORKS</span><span class="v">Tailwind CSS, Bootstrap</span></div>
       <div class="stack-item"><span class="k">DEVELOPER TOOLING</span><span class="v">Git, GitHub, VS Code</span></div>
       <div class="stack-item"><span class="k">DESIGN &amp; UI</span><span class="v">Figma, Responsive Design</span></div>
-      <div class="stack-item"><span class="k">CURRENTLY LEARNING</span><span class="v">TypeScript, Next.js</span></div>
+      <div class="stack-item"><span class="k">CURRENTLY LEARNING</span><span class="v">TypeScript, Next.js, Supabase</span></div>
     </div>
   </section>
 
-  <!-- AI TOOLS -->
+  <!-- ========== AI TOOLS ========== -->
   <section id="ai-tools">
     <div class="section-head">
-      <span class="tag">04</span>
+      <span class="tag">06</span>
       <h2>AI Tools I Use</h2>
     </div>
-    <p class="contact-intro">I leverage modern AI assistants to accelerate my learning, debug code, and refine my development workflow.</p>
+    <p class="contact-intro">I leverage modern AI assistants to accelerate my learning, debug code, and refine my workflow.</p>
     <div class="ai-tools-grid">
       <div class="ai-tool-card">
         <div class="ai-tool-icon">🤖</div>
         <div class="ai-tool-body">
           <div class="ai-tool-title">Claude.ai</div>
-          <div class="ai-tool-desc">AI assistant for brainstorming ideas, reviewing code structure, and getting detailed explanations of complex topics. Great for learning and problem-solving.</div>
+          <div class="ai-tool-desc">AI assistant for brainstorming ideas, reviewing code structure, and getting detailed explanations of complex topics.</div>
         </div>
       </div>
       <div class="ai-tool-card">
         <div class="ai-tool-icon">✨</div>
         <div class="ai-tool-body">
           <div class="ai-tool-title">Gemini</div>
-          <div class="ai-tool-desc">Advanced AI model used for code generation, debugging assistance, and exploring new programming concepts. Helps me write cleaner, more efficient code.</div>
+          <div class="ai-tool-desc">Advanced AI model for code generation, debugging assistance, and exploring new programming concepts efficiently.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (Last Section) -->
+  <!-- ========== CONTACT ========== -->
   <section id="contact">
     <div class="section-head">
-      <span class="tag">05</span>
+      <span class="tag">07</span>
       <h2>Get in Touch</h2>
     </div>
-    <p class="contact-intro">Have a project in mind, want to collaborate, or just say hi? Drop a message below and I'll get back to you as soon as possible.</p>
+    <p class="contact-intro">Have a project, want to collaborate, or just say hi? Drop a message — it goes straight into my Supabase database!</p>
 
-    <div class="contact-grid">
+    <div class="contact-links-grid">
       <a href="mailto:maicadoctolero@gmail.com" class="contact-link">
-        <span class="icon">@</span> maicadoctolero@gmail.com
+        <span class="contact-icon">✉</span>
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">maicadoctolero@gmail.com</div>
+        </div>
       </a>
       <a href="https://github.com/maicadoctolero-dev" target="_blank" rel="noopener" class="contact-link">
-        <span class="icon">&lt;/&gt;</span> github.com/maicadoctolero-dev
+        <span class="contact-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </span>
+        <div>
+          <div class="contact-link-label">GitHub</div>
+          <div class="contact-link-value">maicadoctolero-dev</div>
+        </div>
+      </a>
+      <a href="https://x.com/_jmxxcajxnm" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </span>
+        <div>
+          <div class="contact-link-label">X (Twitter)</div>
+          <div class="contact-link-value">@_jmxxcajxnm</div>
+        </div>
+      </a>
+      <a href="https://instagram.com/_jmxxcajxnm" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </span>
+        <div>
+          <div class="contact-link-label">Instagram</div>
+          <div class="contact-link-value">@_jmxxcajxnm</div>
+        </div>
       </a>
     </div>
 
     <form class="contact-form" id="contactForm" novalidate>
       <div class="form-group">
         <label class="form-label" for="senderName">YOUR NAME</label>
-        <input type="text" id="senderName" class="form-input" placeholder="Jane Doe" required />
+        <input type="text" id="senderName" class="form-input" placeholder="Cai Rein" required />
       </div>
       <div class="form-group">
         <label class="form-label" for="senderEmail">EMAIL ADDRESS</label>
-        <input type="email" id="senderEmail" class="form-input" placeholder="jane@example.com" required />
+        <input type="email" id="senderEmail" class="form-input" placeholder="name@example.com" required />
       </div>
       <div class="form-group">
         <label class="form-label" for="senderMessage">MESSAGE</label>
         <textarea id="senderMessage" class="form-textarea" placeholder="Tell me about your project or just say hello..." required></textarea>
-        <div class="form-hint">// Your message will be encrypted in transit</div>
+        <div class="form-hint">// Sent directly to my Supabase cloud database</div>
       </div>
       <button type="submit" class="submit-btn" id="submitBtn">Send Message →</button>
     </form>
-
     <div class="status-message" id="statusMessage"></div>
   </section>
 
 </main>
 
 <footer>
-  <p class="footer-note">© 2026 Maica Jenish Doctolero · All Rights Reserved</p>
+  <div class="footer-inner wrap">
+    <span class="footer-logo">cai.dctlr<span class="dot">.</span></span>
+    <p class="footer-note">© 2026 Maica Jenish Doctolero · All Rights Reserved</p>
+    <div class="footer-socials">
+      <a href="mailto:maicadoctolero@gmail.com" aria-label="Email">✉</a>
+      <a href="https://github.com/maicadoctolero-dev" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+    </div>
+  </div>
 </footer>
 
 <script src="script.js"></script>
